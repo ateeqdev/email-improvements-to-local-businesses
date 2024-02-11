@@ -38,6 +38,8 @@ export class BusinessProfileService {
 
       for (const data of response.data.data) {
         const businessProfile = new this.businessProfileModel(data);
+        businessProfile.query = `${details.query} (lat: ${details.lat}, lng: ${details.lng})`;
+        businessProfile.email_written = false;
         await businessProfile.save();
       }
 

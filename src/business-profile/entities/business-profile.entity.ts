@@ -5,38 +5,44 @@ export type BusinessProfileDocument = BusinessProfile & Document;
 
 @Schema()
 export class BusinessProfile {
-  @Prop({ type: String })
-  business_id? : string;
+  @Prop({ type: String, required: true })
+  query: string;
+
+  @Prop({ type: Boolean, required: true, default: false })
+  email_written: boolean;
 
   @Prop({ type: String })
-  google_id? : string;
+  business_id?: string;
 
   @Prop({ type: String })
-  place_id? : string;
+  google_id?: string;
 
   @Prop({ type: String })
-  phone_number? : string;
+  place_id?: string;
 
   @Prop({ type: String })
-  name? : string;
+  phone_number?: string;
+
+  @Prop({ type: String })
+  name?: string;
 
   @Prop({ type: Number })
-  latitude? : number;
+  latitude?: number;
 
   @Prop({ type: Number })
-  longitude? : number;
+  longitude?: number;
 
   @Prop({ type: String })
-  full_address? : string;
+  full_address?: string;
 
   @Prop({ type: Number })
-  review_count? : number;
+  review_count?: number;
 
   @Prop({ type: Number })
-  rating? : number;
+  rating?: number;
 
   @Prop({ type: String })
-  timezone? : string;
+  timezone?: string;
 
   @Prop({ type: String })
   website?: string;
@@ -65,8 +71,14 @@ export class BusinessProfile {
   @Prop({ type: [String] })
   subtypes?: string[];
 
-  @Prop({ type: [{ photo_id: String, photo_url: String, photo_url_large: String }] })
-  photos_sample?: { photo_id?: string, photo_url?: string, photo_url_large?: string }[];
+  @Prop({
+    type: [{ photo_id: String, photo_url: String, photo_url_large: String }],
+  })
+  photos_sample?: {
+    photo_id?: string;
+    photo_url?: string;
+    photo_url_large?: string;
+  }[];
 
   @Prop({ type: Object })
   reviews_per_rating?: Record<string, number>;
@@ -120,7 +132,8 @@ export class BusinessProfile {
   deletedAt?: Date;
 }
 
-export const BusinessProfileSchema = SchemaFactory.createForClass(BusinessProfile);
+export const BusinessProfileSchema =
+  SchemaFactory.createForClass(BusinessProfile);
 
 BusinessProfileSchema.set('toJSON', {
   virtuals: true,
