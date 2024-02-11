@@ -1,4 +1,4 @@
-export class CreateWriteColdEmailDto {
+export class CreateBusinessProfileDto {
     query: string;
     lat: string;
     lng: string;
