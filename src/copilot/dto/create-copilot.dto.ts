@@ -1,1 +1,5 @@
-export class CreateCopilotDto {}
+export class CreateCopilotDto {
+    query: string;
+    lat: string;
+    lng: string;
+}
