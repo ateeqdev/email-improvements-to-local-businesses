@@ -49,19 +49,27 @@ export class BusinessProfileService {
     }
   }
 
-  findAll() {
+  async findAll() {
     return `This action returns all BusinessProfile`;
   }
 
-  findOne(id: number) {
+  async findOne(id: number) {
     return `This action returns a #${id} BusinessProfile`;
   }
 
-  update(id: number, updateBusinessProfileDto: UpdateBusinessProfileDto) {
+  async findByFilters(filters: Object) {
+    return `This action returns a BusinessProfile`;
+  }
+
+  async findOneByFilters(filters: Object) {
+    return await this.businessProfileModel.findOne(filters);
+  }
+
+  async update(id: number, updateBusinessProfileDto: UpdateBusinessProfileDto) {
     return `This action updates a #${id} BusinessProfile`;
   }
 
-  remove(id: number) {
+  async remove(id: number) {
     return `This action removes a #${id} BusinessProfile`;
   }
 }

@@ -6,7 +6,7 @@ export type CopilotDocument = Copilot & Document;
 @Schema()
 export class Copilot {
   @Prop({ type: String })
-  query?: string;
+  name?: string;
 
   @Prop({ type: String })
   business_name?: string;

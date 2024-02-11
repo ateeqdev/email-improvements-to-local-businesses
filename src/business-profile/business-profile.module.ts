@@ -15,5 +15,6 @@ import {
   ],
   controllers: [BusinessProfileController],
   providers: [BusinessProfileService],
+  exports: [BusinessProfileService],
 })
 export class BusinessProfileModule {}
